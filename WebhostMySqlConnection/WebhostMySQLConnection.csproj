@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB36F4C5-C2B7-485B-B740-9FCFE80AE9BE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebhostMySQLConnection</RootNamespace>
+    <AssemblyName>WebhostMySQLConnection</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>521fd2ec</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.3.4.13329\lib\net45-full\DotNetOpenAuth.AspNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.GoogleOAuth2">
+      <HintPath>..\packages\DotNetOpenAuth.GoogleOAuth2.1.1.2\lib\net40\DotNetOpenAuth.GoogleOAuth2.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="evohtmltopdf, Version=6.16.0.0, Culture=neutral, PublicKeyToken=e1fcbb86597de299, processorArchitecture=MSIL">
+      <HintPath>..\packages\EvoHtmlToPdf_x64.6.16\lib\net40\evohtmltopdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.16.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.16.0\lib\net45\Google.Apis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Admin.Directory.directory_v1, Version=1.16.0.601, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Admin.Directory.directory_v1.1.16.0.601\lib\portable-net45+netcore45+wpa81+wp8\Google.Apis.Admin.Directory.directory_v1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Admin.email_migration_v2, Version=1.10.0.28, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Admin.email_migration_v2.1.10.0.280\lib\portable-net40+sl50+win+wpa81+wp80\Google.Apis.Admin.email_migration_v2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Admin.Reports.reports_v1, Version=1.16.0.550, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Admin.Reports.reports_v1.1.16.0.550\lib\portable-net45+netcore45+wpa81+wp8\Google.Apis.Admin.Reports.reports_v1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.16.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.16.0\lib\net45\Google.Apis.Auth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.16.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.16.0\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Calendar.v3, Version=1.16.0.607, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Calendar.v3.1.16.0.607\lib\portable-net45+netcore45+wpa81+wp8\Google.Apis.Calendar.v3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.16.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.16.0\lib\net45\Google.Apis.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Drive.v2, Version=1.16.0.609, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Drive.v2.1.16.0.609\lib\portable-net45+netcore45+wpa81+wp8\Google.Apis.Drive.v2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Oauth2.v2, Version=1.16.0.620, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Oauth2.v2.1.16.0.620\lib\portable-net45+netcore45+wpa81+wp8\Google.Apis.Oauth2.v2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.16.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.16.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unofficial.Ionic.Zip.1.9.1.8\lib\Ionic.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.7.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.7.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mysql.data.entity.EF6, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entities.6.8.3.0\lib\net45\mysql.data.entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Web.6.9.9\lib\net45\MySql.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\WindowsPowerShell\3.0\System.Management.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Spatial, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.7.0\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.5.7.0\lib\net45\System.Web.Http.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcademicYear.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Analytics\GradeAnalytics.cs" />
+    <Compile Include="AccountManagement\DeviceRegistration.cs" />
+    <Compile Include="AccountManagement\AccountManagement.cs" />
+    <Compile Include="ActivityCategory.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApiPermission.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApiPermissionGroup.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApiRequestHeader.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APRequest.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttendanceMarking.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttendanceStatus.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttendanceSubmissionStatus.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Block.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommentHeader.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Course.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CourseRequest.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CourseRequestComment.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Credit.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditAudit.cs" />
+    <Compile Include="Department.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dorm.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DutyTeam.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EVOPublishing\CommentLetter.cs" />
+    <Compile Include="EVOPublishing\CommentReviewPDF.cs" />
+    <Compile Include="EVOPublishing\Letterhead.cs" />
+    <Compile Include="EVOPublishing\NewFacultyAccountLetter.cs" />
+    <Compile Include="EVOPublishing\NewStudentRegistrationLetter.cs" />
+    <Compile Include="EVOPublishing\PublishRequest.cs" />
+    <Compile Include="EVOPublishing\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalApi.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fingerprint.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GoogleAPI\GoogleCalendarCall.cs" />
+    <Compile Include="GoogleAPI\GoogleDirectoryCall.cs" />
+    <Compile Include="GoogleAPI\GoogleDriveCall.cs" />
+    <Compile Include="GoogleCalendar.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GradeCalculation.cs" />
+    <Compile Include="GradeTable.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GradeTableEntry.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryPass.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Permission.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Preference.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrationRequest.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RequestableCourse.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SchoologyAPI\ISchoologyCreatable.cs" />
+    <Compile Include="SchoologyAPI\SchoologyCourse.cs" />
+    <Compile Include="SchoologyAPI\SchoologySection.cs" />
+    <Compile Include="SchoologyAPI\SchoologyUser.cs" />
+    <Compile Include="SeatingChart.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SeatingChartSeat.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Section.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceAccount.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Status.cs" />
+    <Compile Include="Student.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentCalendarSpecialPermission.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentComment.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentSignup.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Term.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TimeStampedSignature.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Variable.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WebhostEventLog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebPage.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WebPageTag.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Web\AccessLevel.cs" />
+    <Compile Include="Web\ADUser.cs" />
+    <Compile Include="AccountManagement\PasswordReset.cs" />
+    <Compile Include="AttendanceControl.cs" />
+    <Compile Include="CSV.cs" />
+    <Compile Include="DateRange.cs" />
+    <Compile Include="GoogleAPI\GoogleAPICall.cs" />
+    <Compile Include="Web\CourseRequestExport.cs" />
+    <Compile Include="Web\Import.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="Web\MailControler.cs" />
+    <Compile Include="PermissionControl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SchoologyAPI\SchoologyAPICall.cs" />
+    <Compile Include="SchoologyAPI\SchoologyAttendance.cs" />
+    <Compile Include="SchoologyAPI\SchoologyEnrollment.cs" />
+    <Compile Include="WednesdaySchedule.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Weekend.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WeekendActivity.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WeekendControl.cs" />
+    <Compile Include="WeekendDiscipline.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WeekendDuty.cs">
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="XMLException.cs" />
+    <Compile Include="SimpleXMLTag.cs" />
+    <Compile Include="SchoologyAPI\SchoologySync.cs" />
+    <Compile Include="XMLTree.cs" />
+    <Compile Include="SchoologyAPI\SchoologyExport.cs" />
+    <Compile Include="Signature.cs" />
+    <Compile Include="WebhostModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebhostModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WebhostModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebhostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WebhostModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebhostModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\State.cs" />
+    <Compile Include="Web\WebhostException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="WebhostModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WebhostModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="WebhostModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WebhostModel.edmx</DependentUpon>
+      <LastGenOutput>WebhostModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="WebhostModel.edmx.diagram">
+      <DependentUpon>WebhostModel.edmx</DependentUpon>
+    </None>
+    <None Include="WebhostModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WebhostModel.edmx</DependentUpon>
+      <LastGenOutput>WebhostModel.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EVOPublishing\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\letterhead.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DigitalSignatureImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Ionic.Zip.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

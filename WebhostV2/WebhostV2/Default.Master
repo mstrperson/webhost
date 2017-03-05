@@ -1,0 +1,87 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="WebhostV2.Default" %>
+
+<%@ Register src="UserControls/StandardNavigationControls.ascx" tagname="StandardNavigationControls" tagprefix="uc1" %>
+<%@ Register src="UserControls/WebPagePermissionsEditor.ascx" tagname="WebPagePermissionsEditor" tagprefix="uc2" %>
+<%@ Register Src="~/UserControls/PasswordResetForm.ascx" TagPrefix="uc1" TagName="PasswordResetForm" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="default.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="initial-scale=1"/>
+    <meta name="viewport" content="width=device-width"/>
+    <script>
+        function menu()
+        {
+            var menu = document.getElementById("sidebar");
+            var content = document.getElementById("main_content");
+            var footer = document.getElementById("page_footer");
+            if(menu.style.display == 'inline')
+            {
+                menu.style.display = 'none';
+                content.style.display = 'inline';
+                footer.style.display = 'block';
+                //content.style.width = '100%';
+            }
+            else
+            {
+                menu.style.display = 'inline';
+                content.style.display = 'none';
+                footer.style.display = 'none';
+                //content.style.width = '580px';
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <header id="page_header">
+        <asp:ContentPlaceHolder ID="header_cp" runat="server">
+        
+        
+        </asp:ContentPlaceHolder>
+    </header>
+        <asp:Panel ID="MasterSuccess" runat="server" Visible="false">
+            <article class="success">
+                <header><asp:Label ID="MasterSuccessHeader" runat="server" Text=""/></header>
+                <asp:TextBox TextMode="MultiLine" ReadOnly="true" ID="MasterSuccessMessage" runat="server" />
+                <asp:Button ID="ConfirmBtn" runat="server" Text="OK" OnClick="ConfirmBtn_Click" />
+            </article>
+        </asp:Panel>
+        <asp:Panel ID="MasterError" runat="server" Visible="false">
+            <article class="error">
+                <header><asp:Label ID="MasterErrorHeader" runat="server" Text=""/></header>
+                <asp:TextBox TextMode="MultiLine" ReadOnly="true" ID="MasterErrorMessage" runat="server" />
+                <asp:Button ID="ErrorClearBtn" runat="server" Text="OK" OnClick="ErrorClearBtn_Click" />
+            </article>
+        </asp:Panel>
+    <div id="middle">
+        <nav id="sidebar">
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                <uc1:StandardNavigationControls ID="StandardNavigationControls1" runat="server" />
+            <asp:ContentPlaceHolder ID="sidebar_cp" runat="server">
+        
+            </asp:ContentPlaceHolder>
+                <uc2:WebPagePermissionsEditor ID="WebPagePermissionsEditor1" runat="server" />
+        </nav>
+        <div id="main_content">
+            <asp:ContentPlaceHolder ID="main_cp" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <footer id="page_footer">
+        <asp:Label ID="username_label" runat="server"></asp:Label>&nbsp;&nbsp; <asp:Button ID="LogoutBtn" runat="server" Text="Logout" OnClick="LogoutBtn_Click" />&nbsp;&nbsp; <asp:Button ID="ChangePassword" runat="server" Text="Change Password" OnClick="ChangePassword_Click" /><br />
+        The Current Active Term is <asp:Label ID="ActiveTermLabel" runat="server" Text=""></asp:Label>
+        <asp:ContentPlaceHolder ID="footer_cp" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </footer>
+    </form>
+</body>
+</html>

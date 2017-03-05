@@ -1,0 +1,100 @@
+﻿/* <link href="iPad.css" media="screen and (max-width:1133px)" rel="stylesheet" type="text/css" /> */
+body
+{
+    background: #749cd0 !important;
+    font-size: 20px;
+}
+
+#form1
+{
+    width: 100%;/*786px;*/
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+div#main_content
+{
+    width: 100%; /*580px;*/
+}
+
+article.control
+{
+    width: auto;/*560px;*/
+}
+
+nav#sidebar
+{
+    display: none;
+    width: 100%;
+    font-size: 40px;
+    z-index: 2;
+}
+
+nav.control
+{
+    width: auto;
+    background: rgba( 75, 123, 185, 1.0);
+}
+ nav.control div, nav.control table, nav.control div tbody, nav.control input
+ {
+     width: 100%;
+ }
+
+ nav.control div table, nav.control div tbody
+ {
+     display: table !important;
+ }
+
+div#mobile_nav
+{
+    display: inline-block;
+    float: left;
+}
+
+.box-shadow-menu 
+{
+  position: relative;
+  padding-left: 1.25em;
+}
+
+.box-shadow-menu:before 
+{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.25em;
+  width: 1em;
+  height: 0.15em;
+  background: black;
+  box-shadow: 0 0.25em 0 0 black, 0 0.5em 0 0 black;
+}
+
+input[type='image']
+{
+    height: 50px !important;
+}
+
+div#MorningMeetingAttendanceChart1_LateStudentsSelector_StudentGroupPanel #StudentSelectorDiv
+{
+    margin-left: 10px;
+}
+
+#MorningMeetingAttendanceChart1_LateStudentsSelector_RemoveList
+{
+    margin-left: 7px;
+}
+
+#MorningMeetingAttendanceChart1_MarkLatesBtn, #MorningMeetingAttendanceChart1_SubmitBtn
+{
+    margin-right: 4px;
+}
+
+.ajax__combobox_buttoncontainer button:hover, input[type=submit]:hover, input[type=button]:hover, button:hover
+{
+    background: ButtonFace;
+}
+
+#sidebar input
+{
+    display: inline-block;
+}

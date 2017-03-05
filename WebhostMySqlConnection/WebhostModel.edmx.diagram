@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ca7adbc766ee4d66a9f13dc435a45ab1" Name="Diagram1" ZoomLevel="100">
+        <EntityTypeShape EntityType="WebhostModel.AcademicYear" Width="1.5" PointX="0.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebhostModel.AttendanceMarking" Width="1.5" PointX="13.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebhostModel.Block" Width="1.5" PointX="2.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebhostModel.CommentHeader" Width="1.5" PointX="10.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebhostModel.Course" Width="1.5" PointX="14.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebhostModel.Department" Width="1.5" PointX="12.5" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebhostModel.DutyTeam" Width="1.5" PointX="18.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebhostModel.Faculty" Width="1.5" PointX="10.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebhostModel.GradeTable" Width="1.5" PointX="2.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebhostModel.GradeTableEntry" Width="1.5" PointX="5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebhostModel.Section" Width="1.5" PointX="8" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebhostModel.Student" Width="1.5" PointX="15.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebhostModel.StudentComment" Width="1.5" PointX="17.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebhostModel.Term" Width="1.5" PointX="2.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebhostModel.Weekend" Width="1.5" PointX="20.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebhostModel.WeekendActivity" Width="1.5" PointX="26" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="WebhostModel.FK_BlockYear" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_CourseYear" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_DutyTeamYear" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_GradeTableYear" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_TermYear" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_AttendanceMarking" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_AttendanceSection" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_AttendanceStudent" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_SectionBlock" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_CommentToHeader" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_HeaderTerm" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_SectionHeader" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_CourseDepartment" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_SectionCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_DutyTeamLeader" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_DutyWeekend" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_StudentAdvisor" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_GradesToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_EffortGrade" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_ExamGrade" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_FinalGrade" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_TermGrade" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_CommentStudent" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FK_WeekendActivity" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.DutyMembers" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.FacultyActivities" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.SectionStudents" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.SectionTeachers" ManuallyRouted="false" />
+        <AssociationConnector Association="WebhostModel.SectionTerms" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WebhostModel.StudentSignup" Width="1.5" PointX="28.25" PointY="8.125" />
+        <AssociationConnector Association="WebhostModel.FK_StudentActivity" />
+        <AssociationConnector Association="WebhostModel.FK_ActivityStudent" />
+        <EntityTypeShape EntityType="WebhostModel.Dorm" Width="1.5" PointX="12.5" PointY="10.125" />
+        <AssociationConnector Association="WebhostModel.FK_DormYear" />
+        <AssociationConnector Association="WebhostModel.FK_DormHead" />
+        <AssociationConnector Association="WebhostModel.DormParent" />
+        <AssociationConnector Association="WebhostModel.StudentDorm" />
+        <AssociationConnector Association="WebhostModel.FK_DutyTeamAOD" />
+        <AssociationConnector Association="WebhostModel.SundayStudyHallList" />
+        <EntityTypeShape EntityType="WebhostModel.SeatingChart" Width="1.5" PointX="7.75" PointY="22.375" />
+        <EntityTypeShape EntityType="WebhostModel.SeatingChartSeat" Width="1.5" PointX="17.75" PointY="23.125" />
+        <AssociationConnector Association="WebhostModel.FK_ChartId" />
+        <AssociationConnector Association="WebhostModel.FK_SectionChart" />
+        <AssociationConnector Association="WebhostModel.FK_StudentId" />
+        <EntityTypeShape EntityType="WebhostModel.Permission" Width="1.5" PointX="15.5" PointY="13.125" />
+        <AssociationConnector Association="WebhostModel.FacultyPermission" />
+        <AssociationConnector Association="WebhostModel.StudentPermission" />
+        <EntityTypeShape EntityType="WebhostModel.WebPage" Width="1.5" PointX="13.25" PointY="0.5" />
+        <AssociationConnector Association="WebhostModel.PagePermissions" />
+        <EntityTypeShape EntityType="WebhostModel.ApiRequestHeader" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="WebhostModel.ExternalApi" Width="1.5" PointX="0.75" PointY="2.125" />
+        <EntityTypeShape EntityType="WebhostModel.ServiceAccount" Width="1.5" PointX="3" PointY="3.75" />
+        <AssociationConnector Association="WebhostModel.FK_ApiHeader" />
+        <AssociationConnector Association="WebhostModel.FK_ApiAccount" />
+        <EntityTypeShape EntityType="WebhostModel.WebPageTag" Width="1.5" PointX="15.5" PointY="0.625" />
+        <AssociationConnector Association="WebhostModel.WebPageTagLink" />
+        <EntityTypeShape EntityType="WebhostModel.Variable" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WebhostModel.WeekendDiscipline" Width="1.5" PointX="23" PointY="5.125" />
+        <AssociationConnector Association="WebhostModel.FK_StudentDiscipline" />
+        <AssociationConnector Association="WebhostModel.FK_WeekendDiscipline" />
+        <EntityTypeShape EntityType="WebhostModel.LibraryPass" Width="1.5" PointX="23.75" PointY="17.75" />
+        <EntityTypeShape EntityType="WebhostModel.TimeStampedSignature" Width="1.5" PointX="12.5" PointY="29.5" />
+        <AssociationConnector Association="WebhostModel.FK_FacultySignature" />
+        <AssociationConnector Association="WebhostModel.FK_NoteLibrarySig" />
+        <AssociationConnector Association="WebhostModel.FK_NoteStudyHallSig" />
+        <AssociationConnector Association="WebhostModel.FK_StudentNote" />
+        <EntityTypeShape EntityType="WebhostModel.CourseRequestComment" Width="1.5" PointX="20.75" PointY="13.875" />
+        <AssociationConnector Association="WebhostModel.FK_CRN_Student" />
+        <AssociationConnector Association="WebhostModel.FK_CRN_Term" />
+        <EntityTypeShape EntityType="WebhostModel.APRequest" Width="1.5" PointX="23" PointY="8.75" />
+        <AssociationConnector Association="WebhostModel.FK_APreq_DeptHead" />
+        <AssociationConnector Association="WebhostModel.FK_APreq_GradeTable" />
+        <AssociationConnector Association="WebhostModel.FK_APreq_Teacher" />
+        <AssociationConnector Association="WebhostModel.APReqest_Section" />
+        <AssociationConnector Association="WebhostModel.FK_Dept_Head" />
+        <EntityTypeShape EntityType="WebhostModel.RegistrationRequest" Width="1.5" PointX="17.75" PointY="19.875" />
+        <AssociationConnector Association="WebhostModel.FK_Student_RegReq" />
+        <AssociationConnector Association="WebhostModel.FK_Permission_Year" />
+        <EntityTypeShape EntityType="WebhostModel.GoogleCalendar" Width="1.5" PointX="12.5" PointY="26.375" />
+        <AssociationConnector Association="WebhostModel.CalendarOwner" />
+        <EntityTypeShape EntityType="WebhostModel.StudentCalendarSpecialPermission" Width="1.5" PointX="20.75" PointY="21.375" />
+        <AssociationConnector Association="WebhostModel.FK_Calender_StudentPer" />
+        <AssociationConnector Association="WebhostModel.FK_Student_CalPer" />
+        <EntityTypeShape EntityType="WebhostModel.Credit" Width="1.5" PointX="20.75" PointY="10.25" />
+        <AssociationConnector Association="WebhostModel.FK_Credit_Type" />
+        <AssociationConnector Association="WebhostModel.FK_Credit_Value" />
+        <AssociationConnector Association="WebhostModel.SectionCredit" />
+        <AssociationConnector Association="WebhostModel.FK_Student_Credit_U" />
+        <EntityTypeShape EntityType="WebhostModel.WeekendDuty" Width="1.5" PointX="23" PointY="13.125" />
+        <AssociationConnector Association="WebhostModel.FK_Duty_Weekend" />
+        <AssociationConnector Association="WebhostModel.WeekendDutyAssignment" />
+        <EntityTypeShape EntityType="WebhostModel.ActivityCategory" Width="1.5" PointX="28.25" PointY="11.625" />
+        <AssociationConnector Association="WebhostModel.WeekendActivity_Categories" />
+        <EntityTypeShape EntityType="WebhostModel.CourseRequest" Width="1.5" PointX="20.75" PointY="17.5" />
+        <EntityTypeShape EntityType="WebhostModel.RequestableCourse" Width="1.5" PointX="20" PointY="24.5" />
+        <AssociationConnector Association="WebhostModel.FK_APreq_CR" />
+        <AssociationConnector Association="WebhostModel.FK_Requestabl_Course" />
+        <AssociationConnector Association="WebhostModel.FK_CR_RC" />
+        <AssociationConnector Association="WebhostModel.FK_CR_Student" />
+        <AssociationConnector Association="WebhostModel.FK_CR_Term" />
+        <AssociationConnector Association="WebhostModel.FK_Requestabl_Term" />
+        <EntityTypeShape EntityType="WebhostModel.Preference" Width="1.5" PointX="12.5" PointY="4" />
+        <AssociationConnector Association="WebhostModel.FacultyPreference" />
+        <EntityTypeShape EntityType="WebhostModel.Fingerprint" Width="1.5" PointX="17.75" PointY="6.125" />
+        <AssociationConnector Association="WebhostModel.FK_AttendanceSubmitter" />
+        <AssociationConnector Association="WebhostModel.FK_FacultyFingerprint" />
+        <AssociationConnector Association="WebhostModel.FacultyAvailableFingerprints" />
+        <AssociationConnector Association="WebhostModel.StudentAvailableFingerprints" />
+        <EntityTypeShape EntityType="WebhostModel.WednesdaySchedule" Width="1.5" PointX="5" PointY="18.625" />
+        <AssociationConnector Association="WebhostModel.FK_TermWed" />
+        <EntityTypeShape EntityType="WebhostModel.AttendanceStatus" Width="1.5" PointX="8" PointY="10.5" />
+        <EntityTypeShape EntityType="WebhostModel.AttendanceSubmissionStatus" Width="1.5" PointX="10.25" PointY="14.125" />
+        <AssociationConnector Association="WebhostModel.FK_Submission_Status" />
+        <AssociationConnector Association="WebhostModel.FK_StatusSection" />
+        <EntityTypeShape EntityType="WebhostModel.ApiPermissionGroup" Width="1.5" PointX="12.5" PointY="33.5" />
+        <EntityTypeShape EntityType="WebhostModel.ApiPermission" Width="1.5" PointX="14.75" PointY="33.25" />
+        <AssociationConnector Association="WebhostModel.FacultyApiPermissions" />
+        <AssociationConnector Association="WebhostModel.GroupPermissions" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

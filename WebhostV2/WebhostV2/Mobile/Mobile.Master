@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Mobile.master.cs" Inherits="WebhostV2.Mobile.Mobile" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="mobile.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="mobile">
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="MobilePageScriptmanager" runat="server"></asp:ScriptManager>
+    <div>
+        <header id="mobile_header">
+            <asp:ContentPlaceHolder ID="HeaderPlaceHolder" runat="server">
+            
+            </asp:ContentPlaceHolder>
+        </header>
+        <nav id="mobile_nav">
+            <a href="../Home.aspx">Desktop View</a>
+            <a href="Weekend.aspx">This Weekend</a>
+            <a href="Attendance.aspx">Attendance</a>
+            <a href="AttedanceReview.aspx">Attendance Review</a>
+            <asp:ContentPlaceHolder ID="NavPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+        </nav>
+        <div id="mobile_content">
+            <asp:ContentPlaceHolder ID="MainPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+        </div>
+        <footer id="mobile_footer">
+            <asp:Label ID="username_label" runat="server"></asp:Label>&nbsp;&nbsp; <asp:Button ID="LogoutBtn" runat="server" Text="Logout" OnClick="LogoutBtn_Click" />&nbsp;&nbsp; <asp:Button ID="ChangePassword" runat="server" Text="Change Password" OnClick="ChangePassword_Click" /><br />
+            The Current Active Term is <asp:Label ID="ActiveTermLabel" runat="server" Text=""></asp:Label>
+            <asp:ContentPlaceHolder ID="footer_cp" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        </footer>
+    </div>
+    </form>
+</body>
+</html>
